@@ -19,9 +19,8 @@ if exist "!result!" (
     echo 3. cipars=!third!
     echo Summa=!sum!
     echo Reizinajums=!product!
-    help attrib
-)
-if errorlevel 1 exit /b 1
+) || exit /b 1
+help attrib >>"!result!"
 type "!result!" || exit /b 1
 attrib +h "!result!"
 exit /b !errorlevel!
