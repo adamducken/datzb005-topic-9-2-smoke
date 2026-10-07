@@ -14,7 +14,7 @@ for %%F in (rezultats.txt) do set "attributes=%%~aF"
 if "!attributes:h=!"=="!attributes!" goto fail
 
 >Adam_Ducken.txt echo old result
-(echo Adam& echo Ducken& echo 99& echo 1000& echo abc& echo 012& echo 123& echo y& echo 109& echo n)>input.txt
+(echo Adam*& echo Ducken& echo Adam& echo Ducken& echo 99& echo 1000& echo abc& echo 012& echo 123& echo y& echo 109& echo n)>input.txt
 cmd /d /c call AD.bat <input.txt >output.txt 2>&1 || goto fail
 for %%L in ("1. cipars=1" "2. cipars=0" "3. cipars=9" "Summa=10" "Reizinajums=0" "Praktisko darbu izpildīja Adam Ducken;") do findstr /l /x /c:%%L Adam_Ducken.txt >nul || goto fail
 findstr /l /c:"Nederigs skaitlis." output.txt >nul || goto fail

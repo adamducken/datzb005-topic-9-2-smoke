@@ -13,7 +13,9 @@ if not defined last goto bad_name
 set "filename=!first!_!last!.txt"
 set "safe=!filename:"=!"
 if not "!safe!"=="!filename!" goto bad_name
-for %%C in ("\" "/" ":" "*" "?" "<" ">" "|") do if not "!filename:%%~C=!"=="!filename!" goto bad_name
+set "safe="
+for /f "eol=: delims=\/:*?<>|" %%C in ("!filename!") do set "safe=%%C"
+if not "!safe!"=="!filename!" goto bad_name
 
 :number
 set "number="
