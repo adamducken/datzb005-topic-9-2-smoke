@@ -1,6 +1,6 @@
 @echo on
 setlocal EnableExtensions EnableDelayedExpansion
-chcp 437 >nul
+chcp 65001 >nul <nul
 pushd "%~dp0" || exit /b 1
 
 :names
@@ -40,7 +40,6 @@ echo Ievadiet y vai n.
 goto repeat
 
 :finish
-chcp 65001 >nul
 >>rezultats.txt echo Praktisko darbu izpildīja !first! !last!;
 if errorlevel 1 goto fail
 attrib -h rezultats.txt || goto fail
