@@ -6,10 +6,10 @@ pushd "%~dp0" || exit /b 1
 :names
 set "first="
 set "last="
-set /p "first=Ievadiet vardu: " || goto fail
-set /p "last=Ievadiet uzvardu: " || goto fail
-if not defined first goto bad_name
-if not defined last goto bad_name
+set /p "first=Ievadiet vardu: "
+set /p "last=Ievadiet uzvardu: "
+if not defined first goto fail
+if not defined last goto fail
 set "filename=!first!_!last!.txt"
 set "safe=!filename:"=!"
 if not "!safe!"=="!filename!" goto bad_name
@@ -19,7 +19,8 @@ if not "!safe!"=="!filename!" goto bad_name
 
 :number
 set "number="
-set /p "number=Ievadiet trisciparu skaitli (100-999): " || goto fail
+set /p "number=Ievadiet trisciparu skaitli (100-999): "
+if not defined number goto fail
 if "!number:~2,1!"=="" goto bad_number
 if not "!number:~3,1!"=="" goto bad_number
 if "!number:~0,1!"=="0" goto bad_number
@@ -31,7 +32,8 @@ if errorlevel 1 goto fail
 
 :repeat
 set "again="
-set /p "again=Vai atkartot (y/n)? " || goto fail
+set /p "again=Vai atkartot (y/n)? "
+if not defined again goto fail
 if /i "!again!"=="y" goto number
 if /i "!again!"=="n" goto finish
 echo Ievadiet y vai n.

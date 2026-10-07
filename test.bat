@@ -30,6 +30,7 @@ rmdir /s /q "%work%"
 exit /b 0
 
 :fail
+if exist input.txt type input.txt
 if exist output.txt type output.txt
 if exist rezultats.txt type rezultats.txt
 if exist Adam_Ducken.txt type Adam_Ducken.txt
