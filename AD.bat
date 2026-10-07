@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal EnableExtensions EnableDelayedExpansion
 chcp 65001 >nul
 pushd "%~dp0" || exit /b 1
@@ -6,8 +6,8 @@ pushd "%~dp0" || exit /b 1
 :names
 set "first="
 set "last="
-set /p "first=Ievadiet vardu: "
-set /p "last=Ievadiet uzvardu: "
+set /p "first=Ievadiet vardu: " || goto fail
+set /p "last=Ievadiet uzvardu: " || goto fail
 if not defined first goto bad_name
 if not defined last goto bad_name
 set "filename=!first!_!last!.txt"
@@ -19,7 +19,7 @@ if not "!safe!"=="!filename!" goto bad_name
 
 :number
 set "number="
-set /p "number=Ievadiet trisciparu skaitli (100-999): "
+set /p "number=Ievadiet trisciparu skaitli (100-999): " || goto fail
 if "!number:~2,1!"=="" goto bad_number
 if not "!number:~3,1!"=="" goto bad_number
 if "!number:~0,1!"=="0" goto bad_number
@@ -31,7 +31,7 @@ if errorlevel 1 goto fail
 
 :repeat
 set "again="
-set /p "again=Vai atkartot (y/n)? "
+set /p "again=Vai atkartot (y/n)? " || goto fail
 if /i "!again!"=="y" goto number
 if /i "!again!"=="n" goto finish
 echo Ievadiet y vai n.
