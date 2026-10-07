@@ -31,6 +31,8 @@ exit /b 0
 
 :fail
 if exist output.txt type output.txt
+if exist rezultats.txt type rezultats.txt
+if exist Adam_Ducken.txt type Adam_Ducken.txt
 echo FAIL: %work%
 popd
 exit /b 1
