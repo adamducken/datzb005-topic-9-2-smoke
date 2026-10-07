@@ -10,7 +10,9 @@ if defined invalid goto invalid_number
 
 set /a "first=!number:~0,1!, second=!number:~1,1!, third=!number:~2,1!, sum=first+second+third, product=first*second*third" >nul
 set "result=%~dp0rezultats.txt"
-if exist "!result!" attrib -h "!result!" || exit /b 1
+if exist "!result!" (
+    attrib -h "!result!" || exit /b 1
+)
 >"!result!" (
     echo 1. cipars=!first!
     echo 2. cipars=!second!
