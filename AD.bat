@@ -27,7 +27,7 @@ if "!number:~0,1!"=="0" goto bad_number
 set "invalid=!number!"
 for %%D in (0 1 2 3 4 5 6 7 8 9) do if defined invalid set "invalid=!invalid:%%D=!"
 if defined invalid goto bad_number
-call "rekinat.bat" "!number!"
+call "rekinat.bat" "!number!" <nul
 if errorlevel 1 goto fail
 
 :repeat
