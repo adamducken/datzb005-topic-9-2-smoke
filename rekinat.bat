@@ -1,4 +1,4 @@
-@echo on
+@echo off
 setlocal EnableExtensions EnableDelayedExpansion
 set "number=%~1"
 if "!number:~2,1!"=="" goto invalid_number

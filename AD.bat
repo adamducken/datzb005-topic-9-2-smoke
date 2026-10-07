@@ -1,4 +1,4 @@
-@echo on
+@echo off
 setlocal EnableExtensions EnableDelayedExpansion
 chcp 65001 >nul <nul
 pushd "%~dp0" || exit /b 1
